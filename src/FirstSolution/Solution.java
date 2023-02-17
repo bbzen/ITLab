@@ -7,6 +7,7 @@ public class Solution {
     public static void main(String[] args) {
         List<Integer> primes = new ArrayList<>();            // создаем массив для хранения найденных простых чисел
         int number;                                         //создаем переменную для хранения числа, считанного с клавы
+
         try(Scanner scanner = new Scanner(System.in)) {
             number = scanner.nextInt();                     //читаем число с клавы
         }
