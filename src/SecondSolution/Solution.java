@@ -29,21 +29,21 @@ public class Solution {
 
         boolean flag = false;                                                   //создаем флаг, в который занесем результат сравнения
 
-        for (int i = 0; i < splitedSecondInteger.size(); i++) {
-            if (splitedFirstInteger.get(i) == splitedSecondInteger.get(i)) {
-                continue;
-            } else if (splitedFirstInteger.get(i) < splitedSecondInteger.get(i)) {
+        for (int i = 0; i < splitedSecondInteger.size(); i++) {                 //создаем цикл для прверки соответствующих значений 2х массивов
+            if (splitedFirstInteger.get(i) == splitedSecondInteger.get(i)) {    //если первые два значения равны
+                continue;                                                       //переходим к следующему
+            } else if (splitedFirstInteger.get(i) < splitedSecondInteger.get(i)) {  //если первое значение первого массива меньше, меняем значение флага
                 flag = true;
                 break;
-            } else {
+            } else {                                //прекращаем дальнейшее выполнение цикла
                 break;
             }
 
         }
 
         if (flag) {
-            System.out.println("2я версия старше");
-        } else {
+            System.out.println("2я версия старше");     //так как флаг принимает истину только когда первая введенная версия меньше, значит 2я больше
+        } else {                                        // в противном случае 1я больше, выводим это на экран
             System.out.println("1я версия старше");
         }
     }
