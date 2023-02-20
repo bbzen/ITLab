@@ -1,45 +1,48 @@
 package ThirdSolution;
 
 public enum NumberDescriptions {
-    ноль,
-    один,
-    два,
-    три,
-    четыре,
-    пять,
-    шесть,
-    семь,
-    восемь,
-    девять,
-    десять,
-    одинадцать,
-    двенадцать,
-    тринадцать,
-    четырнадцать,
-    пятнадцать,
-    шестнадцать,
-    семнадцать,
-    восемнадцать,
-    девятнадцать,
-    двадцать,
-    тридцать,
-    сорок,
-    пятьдесят,
-    шестьдесят,
-    семьдесят,
-    восемдесят,
-    девяносто,
-    сто,
-    двести,
-    триста,
-    четыреста,
-    пятьсот,
-    шестьсот,
-    восемьсот,
-    девятьсот,
-    тысяча,
-    тысячи,
-    тысяч;
+    НОЛЬ,
+    ОДИН,
+    ДВА,
+    ТРИ,
+    ЧЕТЫРЕ,
+    ПЯТЬ,
+    ШЕСТЬ,
+    СЕМЬ,
+    ВОСЕМЬ,
+    ДЕВЯТЬ,
+    ДЕСЯТЬ,
+    ОДИНАДЦАТЬ,
+    ДВЕНАДЦАТЬ,
+    ТРИНАДЦАТЬ,
+    ЧЕТЫРНАДЦАТЬ,
+    ПЯТНАДЦАТЬ,
+    ШЕСТНАДЦАТЬ,
+    СЕМНАДЦАТЬ,
+    ВОСЕМНАДЦАТЬ,
+    ДЕВЯТНАДЦАТЬ,
+    ДВАДЦАТЬ,
+    ТРИДЦАТЬ,
+    СОРОК,
+    ПЯТЬДЕСЯТ,
+    ШЕСТЬДЕСЯТ,
+    СЕМДЕСЯТ,
+    ВОСЕМЬДЕСЯТ,
+    ДЕВЯНОСТО,
+    СТО,
+    ДВЕСТИ,
+    ТРИСТА,
+    ЧЕТЫРЕСТА,
+    ПЯТЬСОТ,
+    ШЕСТЬСОТ,
+    ВОСЕМЬСОТ,
+    ДЕВЯТЬСОТ,
+    ТЫСЯЧА,
+    ТЫСЯЧИ,
+    ТЫСЯЧ,
+    МИЛЛИОН,
+    МИЛЛИОНА,
+    МИЛЛИОНОВ;
 
     public static String turnDecimal(int i) {
         if (i < 21) {
@@ -78,28 +81,32 @@ public enum NumberDescriptions {
     }
 
     public static String turnHundreds(int i) {
-         if (i == 100) {
+        if (i == 100) {
             return NumberDescriptions.values()[28].toString();
         } else if (100 < i && i < 200) {
             return NumberDescriptions.values()[28].toString() + " " + turnDecimal(i - 100);
-        } if (i == 200) {
+        }
+        if (i == 200) {
             return NumberDescriptions.values()[29].toString();
         } else if (200 < i && i < 300) {
             return NumberDescriptions.values()[29].toString() + " " + turnDecimal(i - 200);
-        } if (i == 300) {
+        }
+        if (i == 300) {
             return NumberDescriptions.values()[30].toString();
         } else if (300 < i && i < 400) {
             return NumberDescriptions.values()[30].toString() + " " + turnDecimal(i - 300);
-        } if (i == 400) {
+        }
+        if (i == 400) {
             return NumberDescriptions.values()[31].toString();
         } else if (400 < i && i < 500) {
             return NumberDescriptions.values()[31].toString() + " " + turnDecimal(i - 400);
-        } if (i == 500) {
+        }
+        if (i == 500) {
             return NumberDescriptions.values()[31].toString();
         } else if (500 < i && i < 600) {
             return NumberDescriptions.values()[32].toString() + " " + turnDecimal(i - 500);
         }
-         return null;
+        return null;
     }
 
     public static String turnThousands(int i) {
