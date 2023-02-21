@@ -13,6 +13,7 @@ public class Solution {
                 inputStrings.add(scanner.next());       //читаем строки
             }
         }
+
         String[] splitedFirstString = inputStrings.get(0).split("[.]");     //разделяем строки на массив строк по символу "."
         String[] splitedSecondString = inputStrings.get(1).split("[.]");
 
@@ -32,10 +33,10 @@ public class Solution {
         for (int i = 0; i < splitedSecondInteger.size(); i++) {                 //создаем цикл для прверки соответствующих значений 2х массивов
             if (splitedFirstInteger.get(i) == splitedSecondInteger.get(i)) {    //если первые два значения равны
                 continue;                                                       //переходим к следующему
-            } else if (splitedFirstInteger.get(i) < splitedSecondInteger.get(i)) {  //если первое значение первого массива меньше, меняем значение флага
+            } else if (splitedFirstInteger.get(i) < splitedSecondInteger.get(i)) {  //если значение элемента первого массива меньше, меняем значение флага
                 flag = true;
                 break;
-            } else {                                //прекращаем дальнейшее выполнение цикла
+            } else {                                //прекращаем дальнейшее выполнение цикла, это сработает в случае, если значение элемента 2го массива больше
                 break;
             }
 
@@ -43,8 +44,8 @@ public class Solution {
 
         if (flag) {
             System.out.println("2я версия старше");     //так как флаг принимает истину только когда первая введенная версия меньше, значит 2я больше
-        } else {                                        // в противном случае 1я больше, выводим это на экран
-            System.out.println("1я версия старше");
+        } else {
+            System.out.println("1я версия старше");     // в противном случае 1я больше, выводим это на экран
         }
     }
 }

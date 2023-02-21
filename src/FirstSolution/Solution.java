@@ -12,7 +12,7 @@ public class Solution {
         try(Scanner scanner = new Scanner(System.in)) {
             readNumber = scanner.nextInt();                     //читаем число с клавы
         }
-
+                                                            //далее найдем все простые числа, чтобы отбросить их в результате
         for (int i = 2; i < readNumber; i++) {                  //в данном цикле передираем все числа от 2 до заданного
             int devidersCount = 0;                          // создаем счетчик делителей
 
