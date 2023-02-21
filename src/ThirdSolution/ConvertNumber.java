@@ -24,43 +24,55 @@ public class ConvertNumber {
         String[] forms = {"", "миллион", "миллиона", "миллионов"};
 
         String forAddingFragments = String.valueOf(number);
-        List<String> arrayOfOriginNumber = new ArrayList<>();
-        List<Integer> arrayOfFragments = new ArrayList<>();
+        int amountOfFragments = (forAddingFragments.length() / 3) + 1;
 
-/*          добавляем фрагменты числа в строковом представлении в массив
-*           если число больше 19 и последняя цифра НЕ ноль, а предпоследняя 1, то первый иф
-*           иначе просто разбивает на символы и добавляет посимвольно в строковый массив
-*/
-        if (number < 20) {
-            arrayOfOriginNumber.add(forAddingFragments);
-            } else if (number > 19 && forAddingFragments.charAt(forAddingFragments.length() - 2) == '1' && forAddingFragments.charAt(forAddingFragments.length() - 1) != '0') {
-                char[] charsFromNumber = forAddingFragments.toCharArray();
-            arrayOfOriginNumber.add(forAddingFragments.substring(forAddingFragments.length() - 2));
-                for (int i = charsFromNumber.length - 3; 0 <= i; i--) {
-                    arrayOfOriginNumber.add(String.valueOf(charsFromNumber[i]));
+        List<String> arrayOfStringFragments = new ArrayList<>();
+        List<Integer> arrayOfIntFragments = new ArrayList<>();
+
+        if (amountOfFragments == 1) {
+            arrayOfStringFragments.add(forAddingFragments);
+        } else {
+            for (int i = 0; i < amountOfFragments; i++) {
+                String temp;
+                if (3 < forAddingFragments.length()) {
+                    temp = forAddingFragments.substring(forAddingFragments.length() - 3);
+                    forAddingFragments = forAddingFragments.substring(0, forAddingFragments.length() - 3);
+                } else {
+                    temp = forAddingFragments;
                 }
+                arrayOfStringFragments.add(temp);
+            }
+        }
+
+        /*          добавляем фрагменты числа в строковом представлении в массив
+         *           если число больше 19 и последняя цифра НЕ ноль, а предпоследняя 1, то первый иф
+         *           иначе просто разбивает на символы и добавляет посимвольно в строковый массив
+         */
+
+
+        //new ConvertNumber(1_119_235); //[235, 119, 1]
+        //переведем строковый массив в инты
+
+        for (int i = arrayOfStringFragments.size() - 1; 0 <= i; i--) {
+            String fragment = arrayOfStringFragments.get(i);
+            int temp = Integer.parseInt(arrayOfStringFragments.get(i));
+            if (temp < 10) {
+                switch (i) {
+                    case 2: result += numbers[0][temp];
+                    break;
+                    case 1: result += numbers[1][temp];
+                    break;
+                }
+            } else if (10 < temp && temp < 20) {
+                result += teens[temp - 10];
+            } else if (20 <= temp && temp < 100) {
+                result += decimals[(temp / 10)];
             } else {
-                char[] charsFromNumber = forAddingFragments.toCharArray();
-                for (int i = charsFromNumber.length - 1; 0 <= i; i--) {
-                    arrayOfOriginNumber.add(String.valueOf(charsFromNumber[i]));
-                }
+                result += hundreds[(temp - (temp % 100)) / 100 ];
             }
-            //new ConvertNumber(1_123_119); //[19, 1, 3, 2, 1, 1]
 
-            //переведем строковый массив в инты
-
-        for (String s : arrayOfOriginNumber) {
-            arrayOfFragments.add(Integer.parseInt(s));
         }
 
-        for (int i = arrayOfOriginNumber.size() - 1; 0 <= i ; i--) {
-            if (Integer.parseInt(arrayOfOriginNumber.get(i)) <= 10) {
-                result += numbers[0][Integer.parseInt(arrayOfOriginNumber.get(i))];
-            }
-        }
-
-
-
-        return null;
+        return result;
     }
 }
