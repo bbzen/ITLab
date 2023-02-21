@@ -209,10 +209,6 @@ public enum NumberDescriptions {
         return null;
     }
 
-    public static String turnNumber(int i) {
-        return null;
-    }
-
     public static String turnToString(int i) {
         if (i < 100) {
             return turnDecimal(i);
