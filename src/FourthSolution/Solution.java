@@ -5,7 +5,7 @@ import java.util.Arrays;
 public class Solution {
     public static void main(String[] args) {
         int[][] array = new int[12][10];          //создаем двумерный массив
-        int counter = 120;                        //создаем инт счетчик, значение которого будем записывать в массив
+        int counter = 120;                        //создаем инт счетчик, значение из которого будем записывать в массив
         for (int i = 0; i < array.length ; i++) {   //этот цикл проходится по строкам массива
             if (i % 2 == 0) {                       //если строка четная
                 for (int j = array[i].length - 1; 0 <= j; j--) {    //заполняем ее в обратном порядке
