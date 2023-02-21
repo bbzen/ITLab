@@ -5,13 +5,15 @@ import java.util.*;
 public class Solution {
 
     public static void main(String[] args) {
-        List<Integer> primes = new ArrayList<>();            // создаем массив для хранения найденных простых чисел
-        int number;                                         //создаем переменную для хранения числа, считанного с клавы
+        List<Integer> primes = new ArrayList<>();                // создаем массив для хранения найденных простых чисел
+        List<Integer> resultArray = new ArrayList<>();          //Создаем массив для хранения результатов
+        int readNumber;                                         //создаем переменную для хранения числа, считанного с клавы
 
         try(Scanner scanner = new Scanner(System.in)) {
-            number = scanner.nextInt();                     //читаем число с клавы
+            readNumber = scanner.nextInt();                     //читаем число с клавы
         }
-        for (int i = 2; i < number; i++) {                  //в данном цикле передираем все числа от 2 до заданного
+
+        for (int i = 2; i < readNumber; i++) {                  //в данном цикле передираем все числа от 2 до заданного
             int devidersCount = 0;                          // создаем счетчик делителей
 
             for (int j = 1; j < i; j++) {                   //в данном цикле будем проверять текущее число на количество делителей
@@ -29,6 +31,15 @@ public class Solution {
             }
             devidersCount = 0;                              // обнуляем счетчик, переходим к след числу из ряда 2 - к
         }
-        System.out.println(primes);                         //выводи список на экран
+
+        for (int i = 2; i <= readNumber; i++) {                 //Заполняем массив результатов чисел числами от 2 до заданного
+            if (primes.contains(i)) {                           // проверяем число, которое хотим добавить - простое ли оно
+                continue;                                       //если да - то пропускаем
+            } else {                                            //в противном случае  - добавляем
+                resultArray.add(i);
+            }
+        }
+
+        System.out.println(resultArray);                         //выводи список с результатами на экран
     }
 }
