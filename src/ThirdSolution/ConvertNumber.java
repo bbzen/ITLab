@@ -58,17 +58,26 @@ public class ConvertNumber {
             int temp = Integer.parseInt(arrayOfStringFragments.get(i));
             if (temp < 10) {
                 switch (i) {
-                    case 2: result += numbers[0][temp];
-                    break;
-                    case 1: result += numbers[1][temp];
-                    break;
+                    case 2:
+                        result += numbers[0][temp] + " ";
+                        break;
+                    case 1:
+                        result += numbers[1][temp] + " ";
+                        break;
                 }
             } else if (10 < temp && temp < 20) {
-                result += teens[temp - 10];
+                result += teens[temp - 10] + " ";
             } else if (20 <= temp && temp < 100) {
-                result += decimals[(temp / 10)];
+                result += decimals[(temp / 10)] + " ";
+                result += numbers[0][temp % 10] + " ";
             } else {
-                result += hundreds[(temp - (temp % 100)) / 100 ];
+                result += hundreds[(temp - (temp % 100)) / 100] + " ";
+                if (temp % 100 < 20) {
+                    result += teens[temp % 10] + " ";
+                } else {
+                    result += decimals[((temp % 100) - (temp % 10)) / 10] + " ";
+                    result += numbers[0][temp % 10] + " ";
+                }
             }
 
         }
